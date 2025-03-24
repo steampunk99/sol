@@ -919,47 +919,17 @@ html.smooth-scroll {
     clip-path: inset(62% 0 3% 0);
     transform: translate(1px, 1px);
   }
-  -2px); 
-}
-40% {
-clip-path: inset(62% 0 3
-%
-0
-)
-;
-transform: translate(1px, 1px
-)
-;
-  }
   60% {
-clip-path: inset(9% 0 46
-%
-0
-)
-;
-transform: translate(-1px, -1px
-)
-;
+    clip-path: inset(9% 0 46% 0);
+    transform: translate(-1px, -1px);
   }
   80% {
-clip-path: inset(24% 0 14
-%
-0
-)
-;
-transform: translate(-2px, 2px
-)
-;
+    clip-path: inset(24% 0 14% 0);
+    transform: translate(-2px, 2px);
   }
   100% {
-clip-path: inset(53% 0 19
-%
-0
-)
-;
-transform: translate(2px, -2px
-)
-;
+    clip-path: inset(53% 0 19% 0);
+    transform: translate(2px, -2px);
   }
 }
 
