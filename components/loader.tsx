@@ -61,7 +61,7 @@ export default function Loader() {
       <div className="loader-line">
         <div className="loader-line-inner" style={{ width: `${progress}%` }} />
       </div>
-      <div className="loader-text mt-4">{Math.round(progress)}%</div>
+      {/* <div className="loader-text mt-4">{Math.round(progress)}%</div> */}
     </div>
   )
 }

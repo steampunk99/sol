@@ -8,7 +8,7 @@ interface PerformantMarqueeProps {
 
 export default function PerformantMarquee({ text, className, speed = 25 }: PerformantMarqueeProps) {
   // Duplicate the text to ensure continuous scrolling
-  const duplicatedText = `${text} ${text}`
+  const duplicatedText = `${text} ${text} ${text} ${text}`
 
   return (
     <div className={cn("marquee-container overflow-hidden", className)}>

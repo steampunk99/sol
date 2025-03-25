@@ -58,13 +58,13 @@ export default function ExperimentalNavbar() {
       <nav
         className={cn(
           "fixed top-0 left-0 w-full z-[1000] transition-all duration-300",
-          scrolled ? "bg-background/90 backdrop-blur-md py-3" : "bg-transparent py-6",
+          scrolled ? " py-3" : "bg-transparent py-6",
         )}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link href="/" className="text-foreground text-2xl font-bold tracking-tighter relative z-[1001]">
-            <span className="glitch-text" data-text="SOLFIT">
-              SOLFIT
+            <span className="glitch-text" data-text="SOLFIT  SOLUTIONS">
+              SOLFIT SOLUTIONS
             </span>
           </Link>
 
@@ -79,7 +79,7 @@ export default function ExperimentalNavbar() {
               </button>
             )}
             <button
-              className={cn("experimental-nav-toggle", isOpen && "open")}
+              className={cn("experimental-nav-toggle ", isOpen && "open")}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >

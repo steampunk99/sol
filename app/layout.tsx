@@ -10,6 +10,8 @@ import ChatWidget from "@/components/chat-widget"
 import { cn } from "@/lib/utils"
 import PageTransition from "@/components/page-transition"
 
+
+
 // Replace with more impactful fonts
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -65,8 +67,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Loader />
           <div className="flex min-h-screen flex-col">
+            
             <ExperimentalNavbar />
             <PageTransition>
+          
               <main className="flex-1">{children}</main>
             </PageTransition>
             <Footer />
@@ -77,7 +81,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'

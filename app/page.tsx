@@ -13,7 +13,7 @@ const fadeIn = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="creative-section-grid">
             <div className="creative-section-title scroll-reveal">
               <h2 className="font-display text-4xl md:text-5xl mb-4 font-bold">We Create Experiences</h2>
-              <div className="h-1 w-24 bg-primary"></div>
+              <div className="h-1 w-24 bg-red-600/60"></div>
             </div>
 
             <div className="creative-section-content scroll-reveal">
