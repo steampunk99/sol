@@ -90,7 +90,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--primary);
+  background-color: orangered;
   z-index: 9998;
   transform: translateY(100%);
   pointer-events: none;
@@ -316,7 +316,8 @@ html.smooth-scroll {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--text);
+  mix-blend-mode:difference;
+  background-color: orangered;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
