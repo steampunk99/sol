@@ -222,7 +222,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-red-400 mix-blend-multiply"></div>
                 <AnimatedImage
                 delay={500}
-              src="/sol/15.jpg"
+              src="/sol/Alice/4.jpg"
               alt="Consultancy Services"
             priority={true}
             width={1200}
@@ -455,8 +455,8 @@ export default function Home() {
               </div>
             ))}
           </StaggerContainer>
-          <div className="flex py-8 justify-center">
-  <Button asChild className="border border-gray-400 p-4">
+          <div className="flex justify-center">
+  <Button asChild className="border text-foreground border-gray-400 p-4">
     Explore products and services
   </Button>
 </div>
