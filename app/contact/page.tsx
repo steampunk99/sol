@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import SectionHeading from "@/components/section-heading"
 import RevealText from "@/components/reveal-text"
-import MagneticButton from "@/components/magnetic-button"
+
 import FadeIn from "@/components/fade-in"
 
 export default function ContactPage() {

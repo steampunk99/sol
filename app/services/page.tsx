@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import SectionHeading from "@/components/section-heading"
 import RevealImage from "@/components/reveal-image"
 import RevealText from "@/components/reveal-text"
-import MagneticButton from "@/components/magnetic-button"
 import FadeIn from "@/components/fade-in"
 import StaggerContainer from "@/components/stagger-container"
 
