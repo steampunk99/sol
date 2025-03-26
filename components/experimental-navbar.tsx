@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
+import RevealText from "./reveal-text"
 
 export default function ExperimentalNavbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -68,18 +69,18 @@ export default function ExperimentalNavbar() {
             </span>
           </Link>
 
-          <div className="flex items-center gap-4 relative z-[1001]">
+          <div className="flex items-center gap-2 relative z-[1001]">
             {mounted && (
               <button
                 onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
-                className="text-foreground p-2 rounded-full hover:bg-foreground/10 transition-colors"
+                className="text-orange-600 p-2 rounded-full hover:bg-foreground/10 transition-colors flex items-center justify-center"
                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
             )}
             <button
-              className={cn("experimental-nav-toggle ", isOpen && "open")}
+              className={cn("experimental-nav-toggle flex items-center justify-center w-10 h-10", isOpen && "open")}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -100,7 +101,7 @@ export default function ExperimentalNavbar() {
                 onClick={closeMenu}
                 className={cn("experimental-menu-item", pathname === link.href && "active")}
               >
-                {link.label}
+               <RevealText delay={100} text={link.label}/>
               </Link>
             ))}
           </div>

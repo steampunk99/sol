@@ -11,9 +11,10 @@ interface AnimatedImageProps {
   height: number
   className?: string
   priority?: boolean
+  delay:number
 }
 
-export default function AnimatedImage({ src, alt, width, height, className, priority = false }: AnimatedImageProps) {
+export default function AnimatedImage({ src, alt, width, height, className,delay=0, priority = false }: AnimatedImageProps) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -46,6 +47,7 @@ export default function AnimatedImage({ src, alt, width, height, className, prio
           "transition-all duration-700 ease-out",
           isVisible ? "opacity-100 transform-none" : "opacity-0 translate-y-8",
         )}
+        style={{ transitionDelay: `${delay}ms` }}
       >
         <Image
           src={src || "/placeholder.svg"}

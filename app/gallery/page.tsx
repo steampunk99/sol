@@ -65,56 +65,60 @@ export default function GalleryPage() {
       id: 1,
       title: "UCC Funding Program",
       date: "Nov 25th 2017",
-      image: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg",
+      image: "/1.jpg",
       category: "Corporate Events",
       description: "A comprehensive funding program launch event for the Uganda Communications Commission.",
       gallery: [
-        "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg",
-        "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
-        "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg",
-        "https://images.pexels.com/photos/1181304/pexels-photo-1181304.jpeg",
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg",
+        "/5.jpeg",
       ],
     },
     {
       id: 2,
       title: "Tech Conference",
       date: "Mar 15th 2018",
-      image: "https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg",
+      image: "/2.jpg",
       category: "Conferences",
       description: "Annual technology conference bringing together industry leaders and innovators.",
       gallery: [
-        "https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg",
-        "https://images.pexels.com/photos/1181435/pexels-photo-1181435.jpeg",
-        "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
-        "https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg",
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg",
+        "/5.jpeg",
       ],
     },
     {
       id: 3,
       title: "Brand Launch for TechCorp",
       date: "Jun 7th 2018",
-      image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg",
+      image: "/4.jpg",
       category: "Brand Launches",
       description: "Complete rebranding and launch event for a leading technology company.",
       gallery: [
-        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg",
-        "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg",
-        "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg",
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg",
+        "/5.jpeg",
       ],
     },
     {
       id: 4,
       title: "Annual Charity Gala",
       date: "Sep 12th 2018",
-      image: "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
+      image: "/5.jpeg",
       category: "Social Events",
       description: "Prestigious charity fundraising event with high-profile attendees.",
       gallery: [
-        "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
-        "https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg",
-        "https://images.pexels.com/photos/1181360/pexels-photo-1181360.jpeg",
-        "https://images.pexels.com/photos/1181376/pexels-photo-1181376.jpeg",
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg",
+        "/5.jpeg",
       ],
     },
   ])
@@ -270,7 +274,7 @@ export default function GalleryPage() {
 
           <div className="home-hero-image">
             <img
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
+              src="/1.jpg"
               alt="Gallery"
               className="w-full h-full object-cover"
             />

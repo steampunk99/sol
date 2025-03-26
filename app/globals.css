@@ -83,6 +83,93 @@
   }
 }
 
+/* Add these animation control classes at the top of the file */
+.animate-when-ready {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-when-ready.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.animate-delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* Replace the creative-hero-title animation */
+.creative-hero-title {
+  font-size: clamp(3rem, 15vw, 12rem);
+  line-height: 0.9;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin: 0;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: transform, opacity;
+}
+
+.creative-hero-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Replace the creative-hero-subtitle animation */
+.creative-hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  margin-top: 2rem;
+  max-width: 40ch;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.2s;
+  will-change: transform, opacity;
+}
+
+.creative-hero-subtitle.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Replace the creative-hero-buttons animation */
+.creative-hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.4s;
+  will-change: transform, opacity;
+}
+
+.creative-hero-buttons.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Page transitions */
 .page-transition {
   position: fixed;
@@ -90,7 +177,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: orangered;
+  background-color: #0C1421;
   z-index: 9998;
   transform: translateY(100%);
   pointer-events: none;
@@ -106,19 +193,20 @@
 
 @keyframes slide-in {
   0% {
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
+
   100% {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
 }
 
 @keyframes slide-out {
   0% {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -131,13 +219,15 @@ html.smooth-scroll {
 .reveal-text {
   overflow: hidden;
   display: inline-block;
+
+
 }
 
 .reveal-text-inner {
   display: inline-block;
   transform: translateY(100%);
   opacity: 0;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
@@ -298,25 +388,22 @@ html.smooth-scroll {
 
 /* Fix the experimental-nav styles */
 .experimental-nav-toggle {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  width: 3rem;
-  height: 3rem;
+  position: relative;
   background: transparent;
   border: none;
   z-index: 1010;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .experimental-nav-toggle::before,
 .experimental-nav-toggle::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
+  width: 2.2rem;
   height: 2px;
-  mix-blend-mode:difference;
   background-color: orangered;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
@@ -395,44 +482,6 @@ html.smooth-scroll {
   width: 100%;
 }
 
-.creative-hero-title {
-  font-size: clamp(3rem, 15vw, 12rem);
-  line-height: 0.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-  margin: 0;
-  color: var(--primary);
-  transform: translateY(50px);
-  opacity: 0;
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.5s;
-  will-change: transform, opacity;
-}
-
-.creative-hero-subtitle {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  font-weight: 400;
-  margin-top: 2rem;
-  max-width: 40ch;
-  transform: translateY(50px);
-  opacity: 0;
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.8s;
-  will-change: transform, opacity;
-}
-
-.creative-hero-buttons {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-  transform: translateY(50px);
-  opacity: 0;
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1s;
-  will-change: transform, opacity;
-}
-
 .creative-hero-scroll {
   position: absolute;
   bottom: 2rem;
@@ -503,14 +552,14 @@ html.smooth-scroll {
 }
 
 .creative-section-image {
-  grid-column: 7 / 12;
+  grid-column: 5 / 12;
   position: relative;
 }
 
 .creative-section-image img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 
 .creative-card {
@@ -952,15 +1001,15 @@ html.smooth-scroll {
 .home-hero-shape {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.6;
+  filter: blur(120px);
+  opacity: 0.7;
   animation: float 15s ease-in-out infinite;
 }
 
 .home-hero-shape:nth-child(1) {
   width: 40vw;
   height: 40vw;
-  background-color: var(--primary);
+  background-color: red;
   top: -10%;
   right: -10%;
   animation-delay: 0s;
@@ -969,7 +1018,7 @@ html.smooth-scroll {
 .home-hero-shape:nth-child(2) {
   width: 30vw;
   height: 30vw;
-  background-color: var(--secondary);
+  background-color:orange;
   bottom: -10%;
   left: -5%;
   animation-delay: -5s;
@@ -978,7 +1027,7 @@ html.smooth-scroll {
 .home-hero-shape:nth-child(3) {
   width: 25vw;
   height: 25vw;
-  background-color: var(--accent);
+  background-color: blue;
   top: 40%;
   left: 20%;
   animation-delay: -10s;
@@ -1036,8 +1085,12 @@ html.smooth-scroll {
   color: transparent;
   opacity: 0;
   transform: translateY(50px);
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.5s;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.home-hero-title.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-hero-subtitle {
@@ -1046,8 +1099,13 @@ html.smooth-scroll {
   margin-top: 2rem;
   opacity: 0;
   transform: translateY(50px);
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.8s;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.2s;
+}
+
+.home-hero-subtitle.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-hero-buttons {
@@ -1056,8 +1114,13 @@ html.smooth-scroll {
   gap: 1.5rem;
   opacity: 0;
   transform: translateY(50px);
-  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1.1s;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.4s;
+}
+
+.home-hero-buttons.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .scroll-indicator {
@@ -1102,8 +1165,8 @@ html.smooth-scroll {
 /* Scroll animations */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease-out;
 }
 
 .scroll-reveal.visible {
@@ -1215,5 +1278,61 @@ html.smooth-scroll {
 
 .jp-card:hover .jp-card-link {
   transform: translateX(0.5rem);
+}
+
+/* Logo Marquee */
+.logo-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee 25s linear infinite;
+}
+
+.logo-marquee-item {
+  flex-shrink: 0;
+  margin: 0 40px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-marquee-item:hover {
+  opacity: 1 !important;
+  transform: scale(1.1);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fade overlays for marquee */
+.marquee-fade-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.marquee-fade-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
 }
 

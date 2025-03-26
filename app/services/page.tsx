@@ -15,7 +15,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 overflow-hidden noise-bg">
         <div className="absolute inset-0 z-0">
-          <Image src="/placeholder.svg?height=800&width=1920" alt="Services & Products" fill className="object-cover" />
+          <Image src="/sol/bg.jpg" alt="Services & Products" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
@@ -32,7 +32,7 @@ export default function ServicesPage() {
 
         {/* Japanese-inspired vertical text decoration */}
         <div className="absolute top-1/2 right-8 transform -translate-y-1/2 hidden lg:block">
-          <p className="vertical-text jp-subtitle text-[10rem] text-white/5 pointer-events-none">サービス</p>
+          <p className="vertical-text jp-subtitle text-[10rem] text-red-500 pointer-events-none">サービス</p>
         </div>
       </section>
 
@@ -58,7 +58,6 @@ export default function ServicesPage() {
                 {[
                   "Strategic Planning and Development",
                   "Operations Planning and Improvement",
-                  "Problem Solving and Conflict Resolution",
                   "Business Skills and Management Training",
                   "Market Research and Analysis",
                   "Financial Planning and Management",
@@ -72,7 +71,7 @@ export default function ServicesPage() {
             </div>
 
             <RevealImage
-              src="/placeholder.svg?height=600&width=800"
+              src="/sol/9.jpg"
               alt="Consultancy Services"
               width={800}
               height={600}
@@ -87,7 +86,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <RevealImage
-              src="/placeholder.svg?height=600&width=800"
+              src="/sol/branding.jpg"
               alt="Branding Services"
               width={800}
               height={600}
@@ -165,7 +164,7 @@ export default function ServicesPage() {
             </div>
 
             <RevealImage
-              src="/placeholder.svg?height=600&width=800"
+              src="/sol/1.jpg"
               alt="Events Planning Services"
               width={800}
               height={600}
@@ -180,7 +179,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <RevealImage
-              src="/placeholder.svg?height=600&width=800"
+              src="/sol/printing.jpeg"
               alt="Printing Services"
               width={800}
               height={600}
@@ -235,32 +234,32 @@ export default function ServicesPage() {
               {
                 title: "Business Cards",
                 description: "Premium business cards that make a lasting first impression.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/bizcard.jpg",
               },
               {
                 title: "Brochures & Flyers",
                 description: "Eye-catching promotional materials that effectively communicate your message.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/broc.jpg",
               },
               {
                 title: "Posters & Banners",
                 description: "Large format displays that grab attention and increase visibility.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/bill.png",
               },
               {
                 title: "Stationery",
                 description: "Professional letterheads, envelopes, and notepads that reinforce your brand identity.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/stat.jpg",
               },
               {
                 title: "Promotional Items",
                 description: "Branded merchandise that increases brand awareness and customer loyalty.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/prom.jpg",
               },
               {
                 title: "Custom Packaging",
                 description: "Distinctive packaging solutions that enhance the unboxing experience.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sol/pack.jpg",
               },
             ].map((item, index) => (
               <div key={index} className="jp-card overflow-hidden hover:border-primary transition-colors duration-300">
@@ -324,25 +323,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-white">
+      <section className="py-24 ">
         <div className="container mx-auto px-4 text-center">
           <h2 className="jp-title text-4xl md:text-5xl mb-8">Ready to Get Started?</h2>
-          <p className="jp-subtitle max-w-2xl mx-auto mb-12 text-white/80 text-lg">
+          <p className="jp-subtitle max-w-2xl mx-auto mb-12  text-lg">
             Contact us today to discuss how we can help your business grow and succeed with our comprehensive services.
           </p>
-          <MagneticButton>
+          
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="rounded-none border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
+              className="rounded-none border-foreground text-foreground hover:bg-white/10 px-8 py-6 text-lg"
             >
               <Link href="/contact">
                 Start Your Project
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </MagneticButton>
+         
         </div>
       </section>
     </>

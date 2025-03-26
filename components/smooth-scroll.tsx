@@ -27,15 +27,14 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   }, [windowSize.width, windowSize.height])
 
   useEffect(() => {
-    // Skip smooth scrolling on mobile devices
-    if (typeof window !== "undefined" && window.innerWidth < 768) return
+  
 
     const scrollingElement = scrollingContainerRef.current
     if (!scrollingElement) return
 
     let current = 0
     let target = 0
-    const ease = 0.075
+    const ease = 2.75
 
     const lerp = (start: number, end: number, t: number) => {
       return start * (1 - t) + end * t
@@ -72,10 +71,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     }
   }, [])
 
-  // Skip smooth scrolling on mobile devices
-  if (typeof window !== "undefined" && window.innerWidth < 768) {
-    return <>{children}</>
-  }
+
 
   return (
     <div className="smooth-scroll">

@@ -44,11 +44,14 @@ export default function SplitText({ children, className, delay = 0 }: SplitTextP
         {characters.map((char, index) => (
           <span
             key={index}
-            className={cn("split-text-char", isVisible && "animate-char-up")}
+            className="split-text-char"
             style={{
-              animationDelay: `${delay + index * 0.05}s`,
+              // Convert milliseconds to seconds if delay is large (assume it's in ms)
+              animationDelay: `${(delay > 100 ? delay / 1000 : delay) + index * 0.05}s`,
               display: char === " " ? "inline-block" : "inline-block",
               width: char === " " ? "0.5em" : "auto",
+              // Apply animation only when visible
+              animation: isVisible ? "char-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" : "none"
             }}
           >
             {char}
@@ -58,4 +61,3 @@ export default function SplitText({ children, className, delay = 0 }: SplitTextP
     </div>
   )
 }
-

@@ -5,15 +5,22 @@ import Link from "next/link"
 import { ArrowRight, Users, Award, Clock, Zap, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import PerformantMarquee from "@/components/performant-marquee"
-import { motion } from "framer-motion"
+import { delay, motion } from "framer-motion"
+import RevealImage from "@/components/reveal-image"
+import RevealText from "@/components/reveal-text"
+import AnimatedImage from "@/components/animated-image"
+import SplitText from "@/components/split-text"
+import LogoCarousel from "@/components/logo-carousel"
+import LogoMarquee from "@/components/logo-marquee"
 
 // Animation variants
 const fadeIn = {
+  delay:900,
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 1.8, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -87,12 +94,37 @@ export default function Home() {
     },
   ]
 
-  // Stats data
-  const stats = [
-    { value: "10+", label: "Years Experience" },
-    { value: "200+", label: "Projects Completed" },
-    { value: "50+", label: "Regular Clients" },
-    { value: "15", label: "Industry Awards" },
+  // Replace the logos array with this:
+  const partnerLogos = [
+    {
+      alt: "Logo 1",
+      src: "/logos/local.png" // Replace with the actual image path
+    },
+    {
+      alt: "Logo 2",
+      src: "/logos/logo1.jpg" // Replace with the actual image path
+    },
+    {
+      alt: "Logo 3",
+      src: "/logos/logo2.jpg" // Replace with the actual image path
+    },
+    {
+      alt: "Logo 4",
+      src: "/logos/logo4.jpg" // Replace with the actual image path
+    },
+    {
+      alt: "Logo 5",
+      src: "/logos/muk.jpg" // Replace with the actual image path
+    },
+    {
+      alt: "Logo 6",
+      src: "/logos/ucc.png" // Replace with the actual image path
+    }
+  ,
+    {
+      alt: "Logo 6",
+      src: "/logos/usaid.jpg" // Replace with the actual image path
+    }
   ]
 
   return (
@@ -105,9 +137,12 @@ export default function Home() {
           <div className="home-hero-shape"></div>
 
           <div className="home-hero-image">
-            <img
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
-              alt="Creative Team Collaboration"
+           
+                <img
+              src="/sol/11.jpg"
+              alt="Consultancy Services"
+          
+             
             />
           </div>
         </div>
@@ -115,14 +150,13 @@ export default function Home() {
         <motion.div className="home-hero-content" initial="hidden" animate="visible" variants={staggerContainer}>
           <motion.h1
             className="font-display text-[15vw] leading-[0.9] mb-6 font-black tracking-tight"
-            variants={fadeIn}
-          >
-            SOLFIT
+            
+                  >
+             <RevealText className="text-orange-600 dark:text-gray-50 -z-1000 mix-blend-difference" text="SOLFIT" delay={800}/>
           </motion.h1>
-          <motion.p className="text-xl max-w-xl font-light" variants={fadeIn}>
-            An award-winning creative agency specializing in branding, events planning, and printing solutions that
-            elevate your business to new heights.
-          </motion.p>
+          <RevealText className="text-xl max-w-xl font-light" delay={900} text="We are an award-winning creative agency specializing in branding, events planning, and printing solutions that
+            elevate your business to new heights"  />
+            
           <motion.div className="home-hero-buttons" variants={fadeIn}>
             <Button
               asChild
@@ -135,9 +169,10 @@ export default function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10 rounded-none px-8 py-6 text-lg"
+              className="border-orange-600 text-primary text-orange-600 hover:text-orange-700 hover:bg-primary/50 rounded-none px-8 py-6 text-lg"
             >
               <Link href="/services">Our Services</Link>
+          
             </Button>
           </motion.div>
         </motion.div>
@@ -158,7 +193,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="creative-section-grid">
             <div className="creative-section-title scroll-reveal">
-              <h2 className="font-display text-4xl md:text-5xl mb-4 font-bold">We Create Experiences</h2>
+              <RevealText delay={300} className="font-display  text-4xl md:text-5xl  mb-4 font-bold" text="We Create Experiences" />
               <div className="h-1 w-24 bg-red-600/60"></div>
             </div>
 
@@ -167,11 +202,11 @@ export default function Home() {
                 Our team of creative professionals is dedicated to transforming your vision into reality with innovative
                 solutions and meticulous attention to detail.
               </p>
-              <p className="text-muted-foreground mb-8">
+              <p  className=" text-xl tracking-tight font-jp">
                 For over a decade, SolFit Solutions has been at the forefront of design innovation, creating memorable
                 brand experiences and executing flawless events that leave lasting impressions.
               </p>
-              <Button asChild className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="rounded-none border border-primary bg-primary mt-8 text-primary-foreground hover:bg-primary/90">
                 <Link href="/services">
                   Discover Our Services
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -181,12 +216,16 @@ export default function Home() {
 
             <div className="creative-section-image scroll-reveal">
               <div className="relative aspect-square overflow-hidden">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
-                <img
-                  src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg"
-                  alt="About SolFit Solutions"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 bg-red-400 mix-blend-multiply"></div>
+                <AnimatedImage
+                delay={500}
+              src="/2.jpg"
+              alt="Consultancy Services"
+            priority={true}
+            width={1200}
+            height={1200}
+             
+            />
               </div>
             </div>
           </div>
@@ -194,28 +233,21 @@ export default function Home() {
       </section>
 
       {/* Stats Section - NEW */}
-      <section className="py-20 bg-background">
+      <section className="bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <h3 className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">{stat.value}</h3>
-                <p className="text-muted-foreground uppercase text-sm tracking-wider">{stat.label}</p>
-              </motion.div>
-            ))}
+        <div className="creative-section-title scroll-reveal">
+            
+            <RevealText className="font-display text-4xl md:text-5xl mb-4 font-bold"  text="OUR PARTNERS" delay={100}/>
+            <div className="h-1 w-24 bg-orange-500"></div>
           </div>
+        
+     <LogoMarquee logos={partnerLogos}/>
         </div>
       </section>
 
       {/* Services Preview Section */}
       <section className="creative-section">
+        
         <div className="container mx-auto px-4">
           <div className="creative-section-title text-center scroll-reveal">
             <h2 className="font-display text-4xl md:text-5xl mb-4 font-bold">Our Expertise</h2>
@@ -376,25 +408,25 @@ export default function Home() {
               {
                 title: "UCC Funding Program",
                 category: "Branding & Event Management",
-                image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
+                image: "/1.jpg",
                 delay: 0,
               },
               {
                 title: "Tech Conference 2023",
                 category: "Event Planning & Branding",
-                image: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg",
+                image: "/2.jpg",
                 delay: 100,
               },
               {
                 title: "Brand Launch for TechCorp",
                 category: "Branding & Marketing",
-                image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg",
+                image: "/3.jpg",
                 delay: 200,
               },
               {
                 title: "Annual Charity Gala",
                 category: "Event Planning",
-                image: "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
+                image: "/4.jpg",
                 delay: 300,
               },
             ].map((project, index) => (

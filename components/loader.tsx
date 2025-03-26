@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react"
 import { usePathname } from "next/navigation"
+import { usePageTransition } from "./page-transition"
+import { globalTransitionState } from "./page-transition"
 
 export default function Loader() {
   const [progress, setProgress] = useState(0)
@@ -9,8 +11,16 @@ export default function Loader() {
   const loaderRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   const initialLoadDone = useRef(false)
+  const { shouldDelayAnimation } = usePageTransition()
 
   useEffect(() => {
+    // Ensure we don't allow page animations until loader is gone
+    if (globalTransitionState) {
+      globalTransitionState.isTransitioning = true;
+      globalTransitionState.canAnimate = false;
+      globalTransitionState.transitionComplete = false;
+    }
+
     // Only show loader on initial page load, not on navigation
     if (initialLoadDone.current) {
       setIsLoading(false)
@@ -41,10 +51,20 @@ export default function Loader() {
         if (loaderRef.current) {
           loaderRef.current.classList.add("hidden")
 
-          // Remove loader after animation completes
+          // Remove loader after animation completes and enable animations
           setTimeout(() => {
             setIsLoading(false)
             initialLoadDone.current = true
+            
+            // Wait just a bit longer before allowing animations
+            setTimeout(() => {
+              // This will allow page animations to begin
+              if (globalTransitionState) {
+                globalTransitionState.isTransitioning = false;
+                globalTransitionState.canAnimate = true;
+                globalTransitionState.transitionComplete = true;
+              }
+            }, 100);
           }, 800)
         }
       }, 500)
@@ -55,7 +75,7 @@ export default function Loader() {
   if (!isLoading) return null
 
   return (
-    <div ref={loaderRef} className="loader">
+    <div ref={loaderRef} className="loader z-[9999]">
       <div className="noise-animation"></div>
       <div className="loader-text">SOLFIT SOLUTIONS</div>
       <div className="loader-line">

@@ -63,14 +63,14 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 overflow-hidden noise-bg">
         <div className="absolute inset-0 z-0">
-          <Image src="/placeholder.svg?height=800&width=1920" alt="Contact Us" fill className="object-cover" />
+          <Image src="/6.png" alt="Contact Us" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
-              <RevealText text="Contact Us" />
+              <RevealText text="Contact Us" delay={1000}/>
             </h1>
             <p className="text-xl text-white/80 mb-8">Let's discuss how we can help elevate your brand and business.</p>
           </div>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                 subtitle="Fill out the form below and we'll get back to you as soon as possible."
               />
 
-              <FadeIn delay={200}>
+              <FadeIn delay={1050}>
                 <form onSubmit={handleSubmit} className="space-y-8 mt-12">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -172,7 +172,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <MagneticButton>
+              
                     <Button
                       type="submit"
                       className="px-8 py-6 bg-primary text-white hover:bg-primary/90"
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
-                  </MagneticButton>
+                 
 
                   {isSubmitted && (
                     <div className="p-6 bg-primary/10 text-primary border border-primary/20">
@@ -230,10 +230,17 @@ export default function ContactPage() {
               </div>
 
               <div className="h-80 bg-secondary border border-border overflow-hidden">
-                {/* Placeholder for Google Map */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <p className="text-muted-foreground">Map Loading...</p>
-                </div>
+              <div className="w-full h-full flex items-center justify-center">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7585018998616!2d32.58054777615596!3d0.31374669968318547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc7e2b8153a7%3A0xeeafa7741ab6383c!2sSpan%20House!5e0!3m2!1sen!2sug!4v1742989382639!5m2!1sen!2sug" 
+    width="700" 
+    height="450" 
+    style={{ border: 0 }} // Changed to an object
+    allowFullScreen // Corrected attribute
+    loading="lazy" 
+    referrerPolicy="no-referrer-when-downgrade" // Corrected attribute
+  ></iframe>
+</div>
               </div>
             </div>
           </div>

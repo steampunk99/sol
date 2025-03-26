@@ -9,6 +9,7 @@ import Loader from "@/components/loader"
 import ChatWidget from "@/components/chat-widget"
 import { cn } from "@/lib/utils"
 import PageTransition from "@/components/page-transition"
+import AutoAnimate from "@/components/auto-animate"
 
 
 
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   title: "SOLFIT • Creative Solutions",
   description:
     "Business consultants, Brand & Events Managers as well as the originators of your branding and printing solutions.",
-    generator: 'v0.dev'
+    generator: 'steampunk99'
 }
 
 export default function RootLayout({
@@ -64,13 +65,12 @@ export default function RootLayout({
           "font-sans bg-background text-foreground antialiased",
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
           <Loader />
+          <AutoAnimate />
           <div className="flex min-h-screen flex-col">
-            
             <ExperimentalNavbar />
             <PageTransition>
-          
               <main className="flex-1">{children}</main>
             </PageTransition>
             <Footer />
