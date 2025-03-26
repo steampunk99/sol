@@ -241,8 +241,8 @@ export default function Home() {
 
             <div className="creative-section-image scroll-reveal">
               <div className="relative aspect-square overflow-hidden">
-                <div className="absolute inset-0 bg-red-400 mix-blend-multiply"></div>
-                <Parallax speed={0.15} direction="up">
+                <div className="absolute inset-0 bg-primary mix-blend-multiply"></div>
+                <Parallax speed={0.6} direction="up">
                   <AnimatedImage
                     delay={500}
                     src="/sol/Alice/4.jpg"
@@ -348,6 +348,7 @@ export default function Home() {
 
       {/* Process Section - NEW */}
       <section className="py-24 bg-background">
+      <HeroParallax speed={0.8} direction="down" className="">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl mb-4 font-bold">Our Process</h2>
@@ -419,6 +420,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </HeroParallax>
       </section>
 
       {/* Featured Work Section */}
