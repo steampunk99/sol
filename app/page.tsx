@@ -12,6 +12,9 @@ import AnimatedImage from "@/components/animated-image"
 import SplitText from "@/components/split-text"
 import LogoCarousel from "@/components/logo-carousel"
 import LogoMarquee from "@/components/logo-marquee"
+import SectionHeading from "@/components/section-heading"
+import StaggerContainer from "@/components/stagger-container"
+import Image from "next/image"
 
 // Animation variants
 const fadeIn = {
@@ -219,11 +222,11 @@ export default function Home() {
                 <div className="absolute inset-0 bg-red-400 mix-blend-multiply"></div>
                 <AnimatedImage
                 delay={500}
-              src="/2.jpg"
+              src="/sol/15.jpg"
               alt="Consultancy Services"
             priority={true}
             width={1200}
-            height={1200}
+            height={700}
              
             />
               </div>
@@ -397,69 +400,66 @@ export default function Home() {
 
       {/* Featured Work Section */}
       <section className="creative-section">
-        <div className="container mx-auto px-4">
-          <div className="creative-section-title scroll-reveal">
-            <h2 className="font-display text-4xl md:text-5xl mb-4 font-bold">Featured Work</h2>
-            <div className="h-1 w-24 bg-primary"></div>
-          </div>
+      <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Our Products"
+            subtitle="Explore our range of high-quality products designed to elevate your brand and marketing efforts."
+            center
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer baseDelay={200} staggerDelay={100} className="grid md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                title: "UCC Funding Program",
-                category: "Branding & Event Management",
-                image: "/1.jpg",
-                delay: 0,
+                title: "Business Cards",
+                description: "Premium business cards that make a lasting first impression.",
+                image: "/sol/bizcard.jpg",
               },
               {
-                title: "Tech Conference 2023",
-                category: "Event Planning & Branding",
-                image: "/2.jpg",
-                delay: 100,
+                title: "Brochures & Flyers",
+                description: "Eye-catching promotional materials that effectively communicate your message.",
+                image: "/sol/broc.jpg",
               },
               {
-                title: "Brand Launch for TechCorp",
-                category: "Branding & Marketing",
-                image: "/3.jpg",
-                delay: 200,
+                title: "Posters & Banners",
+                description: "Large format displays that grab attention and increase visibility.",
+                image: "/sol/bill.png",
               },
               {
-                title: "Annual Charity Gala",
-                category: "Event Planning",
-                image: "/4.jpg",
-                delay: 300,
+                title: "Stationery",
+                description: "Professional letterheads, envelopes, and notepads that reinforce your brand identity.",
+                image: "/sol/stat.jpg",
               },
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                className="creative-gallery-item scroll-reveal"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-              >
+              {
+                title: "Promotional Items",
+                description: "Branded merchandise that increases brand awareness and customer loyalty.",
+                image: "/sol/prom.jpg",
+              },
+              {
+                title: "Custom Packaging",
+                description: "Distinctive packaging solutions that enhance the unboxing experience.",
+                image: "/sol/pack.jpg",
+              },
+            ].map((item, index) => (
+              <div key={index} className="jp-card overflow-hidden hover:border-primary transition-colors duration-300">
                 <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover"
                 />
-                <div className="creative-gallery-item-overlay">
-                  <h3 className="creative-gallery-item-title font-display font-bold">{project.title}</h3>
-                  <p className="creative-gallery-item-category">{project.category}</p>
+                <div className="p-6">
+                  <h3 className="jp-card-title text-xl mb-2">{item.title}</h3>
+                  <p className="jp-card-content text-muted-foreground">{item.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
-
-          <div className="mt-16 text-center scroll-reveal">
-            <Button asChild size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/gallery">
-                View All Projects
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+          </StaggerContainer>
+          <div className="flex py-8 justify-center">
+  <Button asChild className="border border-gray-400 p-4">
+    Explore products and services
+  </Button>
+</div>
         </div>
       </section>
 

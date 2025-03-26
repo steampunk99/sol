@@ -19,7 +19,7 @@ export default function SectionHeading({
   return (
     <div className={cn("space-y-4 mb-12", center && "text-center", className)}>
       <h2 className={cn("text-4xl md:text-5xl font-display font-bold tracking-tight", titleClassName)}>
-        <RevealText text={title} delay={700} />
+        <RevealText text={title} delay={300} />
       </h2>
       {subtitle && <p className="text-muted-foreground max-w-3xl">{subtitle}</p>}
     </div>

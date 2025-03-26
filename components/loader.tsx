@@ -77,7 +77,7 @@ export default function Loader() {
   return (
     <div ref={loaderRef} className="loader z-[9999]">
       <div className="noise-animation"></div>
-      <div className="loader-text">SOLFIT SOLUTIONS</div>
+      <div className="loader-text"><img src="/logo.png" className="h-12 w-auto" /></div>
       <div className="loader-line">
         <div className="loader-line-inner" style={{ width: `${progress}%` }} />
       </div>

@@ -63,7 +63,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 overflow-hidden noise-bg">
         <div className="absolute inset-0 z-0">
-          <Image src="/6.png" alt="Contact Us" fill className="object-cover" />
+          <Image src="/sol/bg.jpg" alt="Contact Us" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
@@ -145,7 +145,7 @@ export default function ContactPage() {
                         <SelectTrigger className="border-border focus:border-primary">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-gray-400 dark:bg-gray-800">
                           <SelectItem value="consultancy">Consultancy</SelectItem>
                           <SelectItem value="branding">Branding</SelectItem>
                           <SelectItem value="events">Events Planning</SelectItem>
@@ -175,7 +175,7 @@ export default function ContactPage() {
               
                     <Button
                       type="submit"
-                      className="px-8 py-6 bg-primary text-white hover:bg-primary/90"
+                      className="px-8 py-6 border border-foreground hover:bg-primary/90"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
@@ -223,7 +223,14 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-display font-bold mb-2">Office Location</h3>
-                      <p className="text-muted-foreground">Kampala, Uganda</p>
+                      <p className="text-muted-foreground">Plot 1
+</p>
+                      <p className="text-muted-foreground">
+Span House (Behind Worker's House)
+</p>
+                      <p className="text-muted-foreground">
+
+Room No. 106</p>
                     </div>
                   </div>
                 </FadeIn>
