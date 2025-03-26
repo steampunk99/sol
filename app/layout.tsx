@@ -14,10 +14,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 import ExperimentalNavbar from "@/components/experimental-navbar";
 import Footer from "@/components/footer";
 import Loader from "@/components/loader";
-import ChatWidget from "@/components/chat-widget";
 import { cn } from "@/lib/utils";
 import PageTransition from "@/components/page-transition";
 import AutoAnimate from "@/components/auto-animate";
+import LenisProvider from "@/components/lenis-provider";
+import ScrollAdapter from "@/components/scroll-adapter";
 
 // Replace with more impactful fonts
 const spaceGrotesk = Space_Grotesk({
@@ -92,16 +93,19 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
-          <Loader />
-          <AutoAnimate />
-          <div className="flex min-h-screen flex-col">
-            <ExperimentalNavbar />
-            <PageTransition>
-              <main className="flex-1">{children}</main>
-            </PageTransition>
-            <Footer />
-          
-          </div>
+          <LenisProvider>
+            <ScrollAdapter>
+              <Loader />
+              <AutoAnimate />
+              <div className="flex min-h-screen flex-col">
+                <ExperimentalNavbar />
+                <PageTransition>
+                  <main className="flex-1">{children}</main>
+                </PageTransition>
+                <Footer />
+              </div>
+            </ScrollAdapter>
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -9,12 +9,12 @@ import { delay, motion } from "framer-motion"
 import RevealImage from "@/components/reveal-image"
 import RevealText from "@/components/reveal-text"
 import AnimatedImage from "@/components/animated-image"
-import SplitText from "@/components/split-text"
-import LogoCarousel from "@/components/logo-carousel"
 import LogoMarquee from "@/components/logo-marquee"
 import SectionHeading from "@/components/section-heading"
 import StaggerContainer from "@/components/stagger-container"
 import Image from "next/image"
+import Parallax from "@/components/parallax"
+import HeroParallax from "@/components/hero-parallax"
 
 // Animation variants
 const fadeIn = {
@@ -41,13 +41,36 @@ export default function Home() {
   // Refs for scroll animations
   const sectionRefs = useRef<(HTMLElement | null)[]>([])
   const [activeSection, setActiveSection] = useState(0)
+  const heroImageRef = useRef<HTMLImageElement>(null)
 
-  // Enable smooth scrolling
+  // Add a dedicated effect for hero image parallax 
   useEffect(() => {
-    document.documentElement.classList.add("smooth-scroll")
+    const handleScroll = () => {
+      if (heroImageRef.current) {
+        // Simple parallax effect based on scroll position
+        const scrollY = window.scrollY
+        const parallaxSpeed = 0.2
+        const yOffset = scrollY * parallaxSpeed
+        heroImageRef.current.style.transform = `translateY(${yOffset}px)`
+      }
+    }
 
+    // Listen for Lenis custom event first if it exists
+    document.addEventListener('lenisscroll', (e: any) => {
+      if (heroImageRef.current) {
+        const scrollPos = e.detail?.scroll || 0
+        const parallaxSpeed = 0.2
+        const yOffset = scrollPos * parallaxSpeed
+        heroImageRef.current.style.transform = `translateY(${yOffset}px)`
+      }
+    })
+
+    // Fallback to regular scroll event
+    window.addEventListener('scroll', handleScroll)
+    
     return () => {
-      document.documentElement.classList.remove("smooth-scroll")
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('lenisscroll', handleScroll as any)
     }
   }, [])
 
@@ -139,15 +162,12 @@ export default function Home() {
           <div className="home-hero-shape"></div>
           <div className="home-hero-shape"></div>
 
-          <div className="home-hero-image">
-           
-                <img
+          <HeroParallax speed={0.2} direction="down" className="home-hero-image">
+            <img
               src="/sol/11.jpg"
               alt="Consultancy Services"
-          
-             
             />
-          </div>
+          </HeroParallax>
         </div>
 
         <motion.div className="home-hero-content" initial="hidden" animate="visible" variants={staggerContainer}>
@@ -196,8 +216,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="creative-section-grid">
             <div className="creative-section-title scroll-reveal">
-              <RevealText delay={300} className="font-display  text-4xl md:text-5xl  mb-4 font-bold" text="We Create Experiences" />
-              <div className="h-1 w-24 bg-red-600/60"></div>
+              <Parallax speed={0.1} direction="right">
+                <RevealText delay={300} className="font-display text-4xl md:text-5xl mb-4 font-bold" text="We Create Experiences" />
+                <div className="h-1 w-24 bg-red-600/60"></div>
+              </Parallax>
             </div>
 
             <div className="creative-section-content scroll-reveal">
@@ -220,15 +242,16 @@ export default function Home() {
             <div className="creative-section-image scroll-reveal">
               <div className="relative aspect-square overflow-hidden">
                 <div className="absolute inset-0 bg-red-400 mix-blend-multiply"></div>
-                <AnimatedImage
-                delay={500}
-              src="/sol/Alice/4.jpg"
-              alt="Consultancy Services"
-            priority={true}
-            width={1200}
-            height={700}
-             
-            />
+                <Parallax speed={0.15} direction="up">
+                  <AnimatedImage
+                    delay={500}
+                    src="/sol/Alice/4.jpg"
+                    alt="Consultancy Services"
+                    priority={true}
+                    width={1200}
+                    height={700}
+                  />
+                </Parallax>
               </div>
             </div>
           </div>
