@@ -307,7 +307,7 @@ export default function GalleryPage() {
             <TabsContent value="browse">
               <div className="flex flex-wrap gap-4 mb-12 justify-center">
                 <button
-                  className={`px-4 py-2 rounded-none ${selectedCategory === null ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"}`}
+                  className={`px-4 py-2 rounded-none ${selectedCategory === null ? "bg-gray-400 text-primary-black" : "bg-secondary text-foreground"}`}
                   onClick={() => handleCategoryFilter(null)}
                 >
                   All
@@ -315,7 +315,7 @@ export default function GalleryPage() {
                 {Object.keys(groupedGallery).map((category) => (
                   <button
                     key={category}
-                    className={`px-4 py-2 rounded-none ${selectedCategory === category ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"}`}
+                    className={`px-4 py-2 rounded-none ${selectedCategory === category ? "bg-orange-400 text-white" : "bg-secondary text-foreground"}`}
                     onClick={() => handleCategoryFilter(category)}
                   >
                     {category}
