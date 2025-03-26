@@ -318,7 +318,7 @@ export default function Home() {
       {/* Marquee Section */}
       <div className="overflow-hidden">
         <PerformantMarquee
-          text="DESIGN • BRANDING • EVENTS • PRINTING • STRATEGY • CREATIVITY • INNOVATION • EXCELLENCE •"
+          text="DESIGN • BRANDING • EVENTS • PRINTING • CONSULTANCY • CREATIVITY • INNOVATION • EXCELLENCE •"
           className="py-12 bg-primary text-primary-foreground"
         />
       </div>
@@ -455,9 +455,10 @@ export default function Home() {
               </div>
             ))}
           </StaggerContainer>
-          <div className="flex justify-center">
-  <Button asChild className="border text-foreground border-gray-400 p-4">
-    Explore products and services
+          <div className="flex py-8 justify-center">
+  <Button  className="border text-foreground border-gray-400 p-4">
+  <Link href="/services">Explore products and services</Link>
+    
   </Button>
 </div>
         </div>
