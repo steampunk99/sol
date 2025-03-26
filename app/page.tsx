@@ -15,6 +15,9 @@ import StaggerContainer from "@/components/stagger-container"
 import Image from "next/image"
 import Parallax from "@/components/parallax"
 import HeroParallax from "@/components/hero-parallax"
+import { SplitText, GlitchText } from "@/components/split-text"
+import { ExperimentalButton, OutlineButton, AnimatedArrowButton } from "@/components/experimental-buttons"
+import { AnimatedScrollIndicator } from "@/components/animated-scroll-indicator"
 
 // Animation variants
 const fadeIn = {
@@ -155,7 +158,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Creative Hero Section */}
+      {/* Minimalist Hero Section */}
       <section className="home-hero">
         <div className="home-hero-bg">
           <div className="home-hero-shape"></div>
@@ -171,43 +174,97 @@ export default function Home() {
         </div>
 
         <motion.div className="home-hero-content" initial="hidden" animate="visible" variants={staggerContainer}>
-          <motion.h1
-            className="font-display text-[15vw] leading-[0.9] mb-6 font-black tracking-tight"
-            
-                  >
-             <RevealText className="text-orange-600 dark:text-gray-50 -z-1000 mix-blend-difference" text="SOLFIT" delay={800}/>
-          </motion.h1>
-          <RevealText className="text-xl max-w-xl font-light" delay={900} text="We are an award-winning creative agency specializing in branding, events planning, and printing solutions that
-            elevate your business to new heights"  />
-            
-          <motion.div className="home-hero-buttons" variants={fadeIn}>
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-6 text-lg"
-            >
-              <Link href="/contact">Get Started</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-orange-600 text-primary text-orange-600 hover:text-orange-700 hover:bg-primary/50 rounded-none px-8 py-6 text-lg"
-            >
-              <Link href="/services">Our Services</Link>
+          {/* Accent elements */}
+          <div className="jp-enso absolute top-12 left-0"></div>
           
-            </Button>
+          {/* Minimalist title */}
+          <div className="overflow-hidden relative mb-16 max-w-5xl">
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex items-baseline">
+                <motion.h1 
+                  className="font-display inline-block text-[15vw] md:text-[10vw] font-bold text-gray-800 dark:text-gray-200 leading-none"
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+                >
+                  SOL<span className="tracking-tight">FIT</span>
+                </motion.h1>
+                <motion.div
+                  className="hidden md:block ml-6 h-16 w-px bg-gray-300 dark:bg-gray-700"
+                  initial={{ height: 0 }}
+                  animate={{ height: 64 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                ></motion.div>
+              </div>
+              
+              <motion.div 
+                className="flex gap-4 items-center mt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.7 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                <div className="h-[1px] w-8 bg-gray-400 dark:bg-gray-600"></div>
+                <p className="text-sm text-muted-foreground uppercase tracking-[0.2em]">Solutions</p>
+              </motion.div>
+            </motion.div>
+          </div>
+          
+          {/* Subtitle layout */}
+          <div className="relative mb-16 overflow-hidden jp-asymmetric-box">
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+            >
+              <p className="text-2xl font-light text-gray-600 dark:text-gray-300 mb-5">
+                Award-winning creative agency
+              </p>
+              <p className="text-muted-foreground leading-relaxed max-w-sm">
+                We are specializing in branding, events planning, and printing solutions
+                that elevate your business to new heights
+              </p>
+            </motion.div>
+          </div>
+          
+          {/* Minimal buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-12 mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            <Link
+              href="/contact"
+              className="group relative inline-flex items-center py-2 px-4 overflow-hidden text-gray-800 dark:text-white hover:text-gray-900 dark:hover:text-white transition-colors duration-700 bg-white/80 dark:bg-black/60 backdrop-blur-sm shadow-md"
+            >
+              <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-primary transition-all duration-700 group-hover:w-full"></span>
+              <span className="relative tracking-wider text-sm uppercase flex items-center">
+                Get Started
+                <motion.span
+                  className="ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500"
+                  whileHover={{ x: 3 }}
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </motion.span>
+              </span>
+            </Link>
+            
+            <Link
+              href="/services"
+              className="group relative inline-flex items-center py-2 px-4 overflow-hidden text-gray-800 dark:text-white hover:text-gray-900 dark:hover:text-white transition-colors duration-700 bg-white/80 dark:bg-black/60 backdrop-blur-sm shadow-md"
+            >
+              <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-primary transition-all duration-700 group-hover:w-full"></span>
+              <span className="relative tracking-wider text-sm uppercase">
+                Explore Services
+              </span>
+            </Link>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="scroll-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-        >
-          <span className="scroll-indicator-text text-xs">SCROLL</span>
-          <div className="scroll-indicator-line"></div>
         </motion.div>
       </section>
 
@@ -323,7 +380,6 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                ref={(el) => (sectionRefs.current[index] = el)}
               >
                 {service.icon}
                 <h3 className="font-display text-2xl font-bold mb-3">{service.title}</h3>

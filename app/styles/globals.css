@@ -1,0 +1,371 @@
+/* Hero typography experimental styles */
+.split-char {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.char-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.char-main {
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to bottom, #f97316, #ea580c);
+  position: relative;
+  z-index: 2;
+}
+
+.char-shadow {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.char-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, var(--background) 100%);
+  z-index: 3;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: rect(0, 900px, 0, 0);
+}
+
+.glitch-text::before {
+  left: -2px;
+  text-shadow: 1px 0 #ea580c;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: 2px;
+  text-shadow: -1px 0 #ea580c;
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: inset(20% 0 80% 0);
+  }
+  20% {
+    clip-path: inset(60% 0 20% 0);
+  }
+  40% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  60% {
+    clip-path: inset(10% 0 70% 0);
+  }
+  80% {
+    clip-path: inset(30% 0 50% 0);
+  }
+  100% {
+    clip-path: inset(50% 0 30% 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(20% 0 20% 0);
+  }
+  20% {
+    clip-path: inset(40% 0 40% 0);
+  }
+  40% {
+    clip-path: inset(60% 0 60% 0);
+  }
+  60% {
+    clip-path: inset(80% 0 80% 0);
+  }
+  80% {
+    clip-path: inset(10% 0 10% 0);
+  }
+  100% {
+    clip-path: inset(30% 0 30% 0);
+  }
+}
+
+/* Experimental button styles */
+.btn-experimental {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-experimental::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ea580c, transparent);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-experimental:hover::before {
+  transform: translateX(0);
+}
+
+.btn-outline-experimental {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.btn-outline-experimental:hover {
+  border-color: rgba(234, 88, 12, 1);
+}
+
+.btn-outline-experimental::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(234, 88, 12, 0) 0%, rgba(234, 88, 12, 0.2) 50%, rgba(234, 88, 12, 0) 100%);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+}
+
+.btn-outline-experimental:hover::after {
+  transform: translateX(100%);
+}
+
+/* Updated Japanese minimalist style additions */
+.home-hero {
+  --wabi-sabi-accent: #a0a0a0;
+  --wabi-sabi-bg: #f8f8f8;
+  --wabi-sabi-border: #e0e0e0;
+  position: relative;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 12rem;
+  height: 12rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.02);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .home-hero::before {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .home-hero::after {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.dark .home-hero {
+  --wabi-sabi-accent: #707070;
+  --wabi-sabi-bg: #1a1a1a;
+  --wabi-sabi-border: #303030;
+}
+
+.jp-minimalist-divider {
+  height: 1px;
+  width: 40px;
+  background-color: var(--wabi-sabi-border);
+  margin: 2rem 0;
+  position: relative;
+}
+
+.jp-minimalist-divider::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  background-color: var(--wabi-sabi-border);
+  opacity: 0.6;
+}
+
+/* Enso circle - a symbol of Japanese minimalism */
+.jp-enso {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--wabi-sabi-border);
+  border-radius: 50%;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.jp-enso::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: var(--wabi-sabi-accent);
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  border-radius: 50%;
+}
+
+/* For the title and subtle text styling */
+.jp-title {
+  font-feature-settings: "palt";
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.jp-japanese-text {
+  font-feature-settings: "palt";
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+}
+
+/* Asymmetrical layout elements */
+.jp-asymmetric-box {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.jp-asymmetric-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 1px;
+  height: calc(100% - 1rem);
+  background-color: var(--wabi-sabi-border);
+}
+
+.jp-minimalist-title {
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+.jp-minimalist-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.jp-minimalist-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.jp-minimalist-button:hover::after {
+  width: 100%;
+}
+
+.jp-minimalist-section {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Mobile responsiveness for Japanese minimalist elements */
+@media (max-width: 768px) {
+  .home-hero::before,
+  .home-hero::after {
+    display: none;
+  }
+  
+  .jp-enso {
+    top: 5px;
+    left: 5px;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .jp-title {
+    letter-spacing: 0.02em; 
+  }
+  
+  .jp-asymmetric-box {
+    padding-left: 1rem;
+  }
+  
+  .jp-asymmetric-box::before {
+    top: 0.3rem;
+    height: calc(100% - 0.6rem);
+  }
+}
+
+/* Vertical writing mode for Japanese characters */
+.writing-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+/* Additional Japanese-inspired design elements */
+.japanese-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1px;
+}
+
+.ma-spacing {
+  padding: clamp(1rem, 5vw, 3rem);
+}
+
+/* Ink wash effect for images */
+.ink-wash-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.ink-wash-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0.1) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+} 
